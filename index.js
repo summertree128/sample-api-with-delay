@@ -4,11 +4,11 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/delay", (req, res) => {
   res.setHeader("Content-Type", "application/json");
   res.setHeader("Cache-Control", "no-cache");
 
-  let delay = Number.parseInt(req.query.delay);
+  let delay = Number.parseInt(req.query.ms);
 
   if (!delay || delay < 0) {
     delay = 0;
